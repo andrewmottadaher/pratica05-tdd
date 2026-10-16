@@ -1,7 +1,8 @@
 package com.gqs.pratica5.tdd;
 
 public class CalculadoraNota {
+    public static final double NOTA_MINIMA_APROVACAO = 70;
     public boolean estaAprovadoPorNota(double notaFinal) {
-        return notaFinal > 70;
+        return notaFinal >= NOTA_MINIMA_APROVACAO;
     }
 }
