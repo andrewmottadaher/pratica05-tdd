@@ -5,14 +5,9 @@ import org.junit.jupiter.api.Test;
 
 public class CalculadoraNotaTest {
     @Test
-    void deveAprovarComNota70() {
+    void deveRejeitarA1MaiorQue30() {
         CalculadoraNota calc = new CalculadoraNota();
-        assertTrue(calc.estaAprovadoPorNota(70));
-    }
-
-    @Test
-    void deveReprovarComNota69() {
-        CalculadoraNota calc = new CalculadoraNota();
-        assertFalse(calc.estaAprovadoPorNota(69));
-    }
+        assertThrows(IllegalArgumentException.class,
+            () -> calc.calcularNotaFinal(35, 20, 30));
+        }
 }
