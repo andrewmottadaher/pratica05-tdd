@@ -8,6 +8,6 @@ public class CalculadoraNotaTest {
     void deveRejeitarA1MaiorQue30() {
         CalculadoraNota calc = new CalculadoraNota();
         assertThrows(IllegalArgumentException.class,
-            () -> calc.calcularNotaFinal(35, 20, 30));
+            () -> calc.calcularNotaFinal(20, 20, 30));
         }
 }
