@@ -12,9 +12,17 @@ public class CalculadoraNota {
 
         return a1 + a2 + a3;
     }
+
     private void validarNota(double nota, double notaMaxima, String nomeAvaliacao) {
         if (nota < 0 || nota > notaMaxima) {
             throw new IllegalArgumentException(nomeAvaliacao + " deve estar entre 0 e " + notaMaxima);
         }
-    }              
+    }
+
+    public String situacao(double notaFinal, double frequencia) {
+        if (notaFinal >= 70.0 && frequencia >= 75.0) {
+            return "APROVADO";
+        }
+        return "REPROVADO";
+    }
 }
