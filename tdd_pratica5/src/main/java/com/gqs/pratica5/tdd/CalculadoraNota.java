@@ -4,6 +4,7 @@ public class CalculadoraNota {
     private static final double VALOR_MAXIMO_A1 = 30.0;
     private static final double VALOR_MAXIMO_A2 = 30.0;    
     private static final double VALOR_MAXIMO_A3 = 40.0;
+    private static final double FREQUENCIA_MINIMA = 75.0;
 
     public double calcularNotaFinal(double a1, double a2, double a3) {
         validarNota(a1, VALOR_MAXIMO_A1, "A1");
@@ -20,7 +21,7 @@ public class CalculadoraNota {
     }
 
     public String situacao(double notaFinal, double frequencia) {
-        if (notaFinal >= 70.0 && frequencia >= 75.0) {
+        if (notaFinal >= 70.0 && frequencia >= FREQUENCIA_MINIMA) {
             return "APROVADO";
         }
         return "REPROVADO";
