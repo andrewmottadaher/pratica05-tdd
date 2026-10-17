@@ -38,4 +38,39 @@ public class CalculadoraNotaTest {
         String situacao = calc.situacao(70, 75);
         assertEquals("APROVADO", situacao);
     }
+
+    @Test
+    void devePermitirAIPorSomaA2EA3SuficienteENotaBaixa() {
+        CalculadoraNota calc = new CalculadoraNota();
+        // A1=10, A2=20, A3=30, Frequência=80 -> Nota final = 60 (< 70), A2 + A3 = 50 (>= 40)
+        assertTrue(calc.podeFazerAI(10, 20, 30, 80));
+    }
+
+    @Test
+    void devePermitirAIPorSomaA1EA3ExatamenteNoLimite() {
+        CalculadoraNota calc = new CalculadoraNota();
+        // A1=10, A2=5, A3=30, Frequência=80 -> Nota final = 45 (< 70), A1 + A3 = 40 (exatamente no limite)
+        assertTrue(calc.podeFazerAI(10, 5, 30, 80));
+    }
+
+    @Test
+    void naoDevePermitirAISeJaFoiAprovado() {
+        CalculadoraNota calc = new CalculadoraNota();
+        // A1=25, A2=25, A3=30, Frequência=80 -> Nota final = 80 (>= 70): já foi aprovado
+        assertFalse(calc.podeFazerAI(25, 25, 30, 80));
+    }
+
+    @Test
+    void naoDevePermitirAIPorFrequenciaAbaixoDoMinimo() {
+        CalculadoraNota calc = new CalculadoraNota();
+        // A1=10, A2=20, A3=30, Frequência=70 -> Frequência abaixo de 75
+        assertFalse(calc.podeFazerAI(10, 20, 30, 70));
+    }
+
+    @Test
+    void naoDevePermitirAIPorSomasInsuficientes() {
+        CalculadoraNota calc = new CalculadoraNota();
+        // A1=5, A2=5, A3=30, Frequência=80 -> A1 + A3 = 35 e A2 + A3 = 35 (ambas < 40)
+        assertFalse(calc.podeFazerAI(5, 5, 30, 80));
+    }
 }
