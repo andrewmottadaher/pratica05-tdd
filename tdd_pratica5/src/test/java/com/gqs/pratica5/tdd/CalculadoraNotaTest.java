@@ -18,20 +18,24 @@ public class CalculadoraNotaTest {
         assertEquals("APROVADO", situacao);
     }
 
+    /*Parte 3 · Ciclo 8: mudança de requisito
+    Teste reformulado para indicar a razão da reprovação: nota*/
     @Test
     void deveReprovarComNotaBaixa() {
         CalculadoraNota calc = new CalculadoraNota();
         String situacao = calc.situacao(60, 90);
-        assertEquals("REPROVADO", situacao);
+        assertEquals("REPROVADO POR NOTA", situacao);
     }
 
+    /*Parte 3 · Ciclo 8: mudança de requisito
+    Teste reformulado para indicar a razão da reprovação: falta.*/
     @Test
     void deveReprovarPorFrequenciaMesmoComNotaAlta() {
         CalculadoraNota calc = new CalculadoraNota();
         String situacao = calc.situacao(95, 74);
-        assertEquals("REPROVADO", situacao);
+        assertEquals("REPROVADO POR FALTA", situacao);
     }
-
+    
     @Test
     void deveAprovarComFrequenciaExatamente75() {
         CalculadoraNota calc = new CalculadoraNota();

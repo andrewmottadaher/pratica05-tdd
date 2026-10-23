@@ -21,12 +21,15 @@ public class CalculadoraNota {
             throw new IllegalArgumentException(nomeAvaliacao + " deve estar entre 0 e " + notaMaxima);
         }
     }
-
+    
     public String situacao(double notaFinal, double frequencia) {
-        if (notaFinal >= 70.0 && frequencia >= FREQUENCIA_MINIMA) {
-            return "APROVADO";
+        if (frequencia < FREQUENCIA_MINIMA) {
+            return "REPROVADO POR FALTA";
         }
-        return "REPROVADO";
+        if (notaFinal < NOTA_MINIMA_APROVACAO) {
+            return "REPROVADO POR NOTA";
+        }
+        return "APROVADO";
     }
 
     public boolean podeFazerAI(double a1, double a2, double a3, double frequencia) {
