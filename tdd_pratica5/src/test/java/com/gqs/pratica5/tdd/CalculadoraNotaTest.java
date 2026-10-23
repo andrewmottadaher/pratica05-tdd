@@ -35,7 +35,16 @@ public class CalculadoraNotaTest {
         String situacao = calc.situacao(95, 74);
         assertEquals("REPROVADO POR FALTA", situacao);
     }
-    
+
+    /*Parte 3 · Ciclo 8: mudança de requisito
+    Teste criado para situacao(50, 60) que deve indicar a razão da reprovação: falta.*/
+    @Test
+    void deveReprovarPorFalta() {
+        CalculadoraNota calc = new CalculadoraNota();
+        String situacao = calc.situacao(50, 60);
+        assertEquals("REPROVADO POR FALTA", situacao);
+    }
+
     @Test
     void deveAprovarComFrequenciaExatamente75() {
         CalculadoraNota calc = new CalculadoraNota();
