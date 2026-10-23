@@ -40,18 +40,19 @@ public class CalculadoraNota {
             && frequenciaSuficiente 
             && (somaA1A3Valida || somaA2A3Valida);
     }
+
     public double aplicarAI(double a1, double a2, double a3, double notaAI) {
         validarNota(a1, VALOR_MAXIMO_A1, "A1");
         validarNota(a2, VALOR_MAXIMO_A2, "A2");
         validarNota(a3, VALOR_MAXIMO_A3, "A3");
         validarNota(notaAI, 30.0, "AI");
+        
+        double menorNota = Math.min(a1, a2);
 
-        if (a1 <= a2) {
-            if (notaAI > a1) {
+        if (notaAI > menorNota) {
+            if (a1 <= a2) {
                 a1 = notaAI;
-            }
-        } else {
-            if (notaAI > a2) {
+            } else {
                 a2 = notaAI;
             }
         }
