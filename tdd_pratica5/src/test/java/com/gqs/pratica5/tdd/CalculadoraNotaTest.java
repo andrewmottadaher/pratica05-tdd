@@ -86,19 +86,25 @@ public class CalculadoraNotaTest {
         // A1=5, A2=5, A3=30, Frequência=80 -> A1 + A3 = 35 e A2 + A3 = 35 (ambas < 40)
         assertFalse(calc.podeFazerAI(5, 5, 30, 80));
     }
-
+    
+    /* Parte 3 · Ciclo 7: aplicar a nota da AI 
+    AI deve substituir a A1*/
     @Test
     void deveSubstituirA1QuandoForMenorQueA2() {
         CalculadoraNota calc = new CalculadoraNota();
         assertEquals(75.0, calc.aplicarAI(10, 20, 30, 25));
     }
     
+    /* Parte 3 · Ciclo 7: aplicar a nota da AI 
+    AI deve substituir a A2*/
     @Test
     void deveSubstituirA2QuandoForMenorQueA1() {
         CalculadoraNota calc = new CalculadoraNota();
         assertEquals(75.0, calc.aplicarAI(20, 10, 30, 25));
     }
     
+    /* Parte 3 · Ciclo 7: aplicar a nota da AI 
+    AI não deve substituir a A1 ou A2*/
     @Test
     void naoDeveAlterarNotasQuandoAIForMenorQueAmbas() {
         CalculadoraNota calc = new CalculadoraNota();
